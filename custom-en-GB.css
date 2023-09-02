@@ -1,0 +1,8 @@
+body {
+  background-image: url('en-GB.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#layout-content {
+  background-color: unset;
+}
