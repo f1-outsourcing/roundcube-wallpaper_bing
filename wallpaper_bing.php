@@ -58,8 +58,6 @@ class wallpaper_bing extends rcube_plugin
 
         // download the background if the image has expired
         $filetime = filectime($this->plugindir . $this->imgfile);
-        error_log('>>> file:'. $this->plugindir . $this->imgfile );
-        error_log('>>> now:'.date('Y-m-d H:i:s', (time() - $expsec)).' file:'.date('Y-m-d H:i:s',$filetime) );
         if ( (time() - $expsec) > $filetime) {
             $this->getbingimage();
         }
@@ -102,7 +100,7 @@ class wallpaper_bing extends rcube_plugin
         $res = $rcmail->config->get('resolution', 1920);
         $res = 1366;
 
-        $bingurl .= '?format=js&idx=0&n=1&mkt='.$browserlang;
+        $bingurl .= '?format=js&idx=0&n=1&mkt='.$this->browserlang;
 
         $tmpfile = tempnam($this->plugindir, 'bing');
         $imgfile = $this->plugindir . $this->imgfile; 
